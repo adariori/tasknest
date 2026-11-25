@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { createObserveModule } from '@nestjs/observe';
+import { TasksModule } from './tasks/tasks.module.js';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
@@ -13,8 +14,7 @@ export const { ObserveModule, ObserveInstrument } = createObserveModule();
       appSecret: process.env.OBSERVE_APP_SECRET ?? 'YOUR_APP_SECRET',
       serviceId: 'task-nest',
     }),
+    TasksModule,
   ],
-  controllers: [],
-  providers: [],
 })
-export class AppModule {}
+export class AppModule { }
